@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome link -->
+    <script src="https://kit.fontawesome.com/9c3d7ef638.js" crossorigin="anonymous"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- custom styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles/index.css')}}">
+    <title>Tweets From Twitter API</title>
+</head>
+<body>
+    <header>
+        <h1><a href="/" style="color: white"><i class="fa fa-twitter"></i>Tweets</a></h1>
+    </header>
+    
+    <!-- main section starts -->
+    <section class="main">
+        <div class="form_wrapper">
+            <h1>Fill In The Form To Get Tweets From The Twitter Api</h1>
+            <form action="/tweets" method="post">
+                <label for="">Twitter Handle:  </label><input type="text" name="twitter_handle" id="" placeholder="Enter A Twitter Handle..." required>
+
+                <label for="">Tweet limit: </label><input type="number" name="tweet_limit" id="" placeholder="Enter Tweet Limit..." required>
+
+                <label for="">Tweets From: </label><input type="date" name="date_from" id="" required>
+
+                <label for="">To: </label><input type="date" name="date_to" id="" required>
+                <button type="submit">Get Data</button>
+
+                <small>Note The More The Tweet Limit, the Longer it will Take the twitter api To Get The data</small>
+            </form>
+        </div>
+    </section>
+    <!-- main section ends -->
+</body>
+</html>
