@@ -7,7 +7,7 @@
     <!-- font awesome link -->
     <script src="https://kit.fontawesome.com/9c3d7ef638.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{url_for('static', filename = 'styles/index.css')}}">
-    <title>Odiase Efosa Tweets</title>
+    <title>{{context.handle}} Tweets</title>
 </head>
 <body>
     <header>
@@ -21,14 +21,16 @@
         
         <h2>{{context.limit}} Tweets From {{context.handle}} From {{context.date_from}} to {{context.date_to}}</h2>
         <br>
-        {% for tweet in context.tweets %}
+        {% for tweet_dict in context.tweets %}
         <div class="tweet">
-            <h4>{{tweet.user.username}}</h4>
-            <p> {{tweet.content}} </p>
-
-            <h4>{{tweet.date.year}}/{{tweet.date.month}}/{{tweet.date.day}}---{{tweet.date.hour}}:{{tweet.date.minute}}</h3>
+            <h4>{{tweet_dict.tweet.user.username}}</h4>
+            <br>
+            <p> {{tweet_dict.tweet.content}} </p>
+            <br>
+            <h4>SENTIMENT ANALYSIS : {{tweet_dict.sentiment_analysis}} </h4>
+            <br>
+            <h4>{{tweet_dict.tweet.date.year}}/{{tweet_dict.tweet.date.month}}/{{tweet_dict.tweet.date.day}}---{{tweet_dict.tweet.date.hour}}:{{tweet_dict.tweet.date.minute}}</h3>
         </div>
-            
         {% endfor %}  
         {%else%}
         <h2>No Tweets Found</h2>
